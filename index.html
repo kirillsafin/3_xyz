@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>Willkommen</title>
+        <link href="css/default.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div id="header">
+
+            <div id="search">
+                <form action="" method="dialog">
+                    <input type="text" class="dec-text">
+                    <button class="dec-button">Suchen</button>
+                </form>
+            </div>
+            
+            <div id="nav" class="right">
+                    <ul class="menu_hidden">
+                        <li><a href="index.htm">Startseite</a></li>
+                        <li><a href="html/month.html">Zum Kalendar</a></li>
+                        <li><a href="html/search.html">Suchen</a></li>
+                    </ul>
+                    <img src="bilder/menu.svg" id="pic_menu" onclick="showMenu()">
+                </div>
+        </div>
+
+       
+        
+        <div id="content" >
+            <div id="background_picture">
+                <div class="picture">
+                    <img src="bilder/kalendar1.jpg" class="active">
+                    <img src="bilder/Kalender2.jpg" class="disable">
+                    <img src="bilder/Kalender3.jpg" class="disable">
+                </div>
+            </div>
+
+            <div class="slide_buttons_wrapper">
+                <div class="slide_buttons">
+                    <span class="button_item"></span> <span class="button_item"></span> <span class="button_item"></span>
+                </div>
+
+            </div>
+
+            <div class="text center">
+                <h2>Willkommen </br> <span>Mein Kalender</span></h2>
+            </div>
+            
+        </div>
+
+        <div id="footer">
+
+        </div>
+        <script src="script/background_slider.js"></script>
+        <script src="script/menu.js"></script>
+    </body>
+</html>
