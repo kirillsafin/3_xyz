@@ -17,6 +17,11 @@
     list-style-type: none;
 }
 
+#content{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 #content_data{
     border: 1px, solid, black;
 }
@@ -47,9 +52,39 @@
     display: inline-block;
     width: 50%;
     height: 100%;
-    position: relative;
+    position: absolute;
     left: -40px;
-
+    background-color: blue;
+    z-index: 100;
 }
 
+.button_item{
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-color: dimgray;
+    opacity: 0.5;
+}
+.picture{
+    position: absolute;
+    z-index: -100;
+}
+.active{
+    
+    width: 1200px;
+    height: 500px;
+}
+.disable{
+    display: none;
+    width: 0px;
+    height: opx;
+}
 
+.slide_buttons{
+    position: relative;
+    z-index: -50;
+    top: 300px;
+    
+}

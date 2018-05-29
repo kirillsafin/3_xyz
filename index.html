@@ -2,6 +2,8 @@
     <head>
         <title>Willkommen</title>
         <link href="css/default.css" rel="stylesheet" type="text/css" />
+        <link href="css/default_bis360.css" rel="stylesheet" type="text/css" />
+        <link href="css/default_bis768.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <div id="header">
@@ -14,8 +16,8 @@
             </div>
             
             <div id="nav" class="right">
-                    <ul class="menu_hidden">
-                        <li><a href="index.htm">Startseite</a></li>
+                    <ul id="menu_hide_show" class="menu_hidden">
+                        <li><a href="index.html">Startseite</a></li>
                         <li><a href="html/month.html">Zum Kalendar</a></li>
                         <li><a href="html/search.html">Suchen</a></li>
                     </ul>
@@ -28,21 +30,21 @@
         <div id="content" >
             <div id="background_picture">
                 <div class="picture">
-                    <img src="bilder/kalendar1.jpg" class="active">
-                    <img src="bilder/Kalender2.jpg" class="disable">
-                    <img src="bilder/Kalender3.jpg" class="disable">
+                    <img src="bilder/kalendar1.jpg" id="pic1" class="pic_background active">
+                    <img src="bilder/Kalender2.jpg" id="pic2" class=" pic_background disable">
+                    <img src="bilder/Kalender3.jpg" id="pic3"class="pic_background disable">
                 </div>
-            </div>
-
-            <div class="slide_buttons_wrapper">
-                <div class="slide_buttons">
-                    <span class="button_item"></span> <span class="button_item"></span> <span class="button_item"></span>
-                </div>
-
             </div>
 
             <div class="text center">
-                <h2>Willkommen </br> <span>Mein Kalender</span></h2>
+                <h2>Willkommen </br> <span>Elinas Kalender</span></h2>
+            </div>
+
+            <div class="slide_buttons_wrapper">
+                <div class="slide_buttons center">
+                    <span class="button_item">&nbsp;</span> <span class="button_item">&nbsp;</span> <span class="button_item">&nbsp;</span>
+                </div>
+
             </div>
             
         </div>
@@ -52,5 +54,6 @@
         </div>
         <script src="script/background_slider.js"></script>
         <script src="script/menu.js"></script>
+        <script src="script/start_sript.js"></script>
     </body>
 </html>
