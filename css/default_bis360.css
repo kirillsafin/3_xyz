@@ -1,0 +1,65 @@
+@media only screen and (max-width: 360px){
+    *{
+        margin: 0px;
+        padding: 0px;
+        border: 0px;
+    }    
+    #header{
+        text-align: center;
+    }
+    .center{
+        text-align: center;
+    }
+    #nav ul{
+        list-style-type: none;
+        list-style: none;
+    }
+
+    #nav ul li{
+        width: 100%;
+        border: 1px solid black;
+        background-color: brown;
+        text-align: center;
+        font-size: 300%;
+        
+    }
+
+    #content{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    #pic_menu{
+        width: 40px;
+        height: 30px;
+    }
+    .menu_hidden{
+        width: 0px;
+        height: 0px;
+        display: none;
+    }
+
+    #background_picture{
+        margin-top: 10px;
+        display: none;
+        width: 0px;
+        height: 0px;
+    }
+    .disable{
+        display: none;
+        width: 0px;
+        height: 0px;
+    }
+
+    button{
+        width: 80px;
+    }
+    
+    .slide_buttons_wrapper{
+        width: 0px;
+        height: 0px;
+        display: none;
+    }   
+
+
+}

@@ -7,16 +7,33 @@
 
 #header{
     text-align: center;
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
 
 .center{
     text-align: center;
 }
 
-#nav ul{
-    list-style-type: none;
+#nav_inner{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    display: inline-grid;
 }
 
+#nav ul{
+    list-style-type: none;
+    list-style: none;
+}
+#nav ul li{
+    width: 100%;
+    border: 1px solid black;
+    font-size: 300%;
+    background-color: brown;
+    text-align: center;
+    
+}
 #content{
     margin-left: 10px;
     margin-right: 10px;
@@ -27,11 +44,11 @@
 }
 
 #search{
-    width: 45%;
-    display: inline-block
+    width: 49%;
+    display: inline-block;
 }
 #nav{
-    width: 45%;
+    width: 50%;
     display: inline-block;
 }
 
@@ -65,7 +82,17 @@
     height: 20px;
     display: inline-block;
     background-color: dimgray;
-    opacity: 0.5;
+}
+
+.active_itme{
+    opacity: 0.6;
+}
+.inactive_item{
+    opacity: 0.3;
+}
+
+#background_picture{
+    margin-top: 10px;
 }
 .picture{
     position: absolute;
@@ -79,12 +106,89 @@
 .disable{
     display: none;
     width: 0px;
-    height: opx;
+    height: 0px;
 }
 
 .slide_buttons{
+    display: inline-block;
+}
+.text{
+    margin-top: auto;
+    margin-bottom: auto;
     position: relative;
-    z-index: -50;
-    top: 300px;
+}
+.slide_buttons_wrapper{
     
+}
+
+input {
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+button{
+    background-color: #FF6545;
+    border-radius: 10px;
+    width: 100px;
+    background-color: black;
+    border: 2px solid;
+    color: white;
+}
+
+.dec-text{
+    width: 100px;
+}
+textarea{
+    border: 1px solid black;
+    border-radius: 25px;
+}
+
+#content_data{
+    margin-top:10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+#content_head{
+    margin-top:10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    /*margin-bottom: 10px;*/
+    border: 1px solid black;
+}
+
+#content_data{
+    border: 1px solid black;
+}
+tr{
+    width: 100%;
+}
+
+td, th{
+    width: 14%;
+}
+#button_back, #button_forw{
+    font-size: 30px;
+    border-radius: 0px 5px 0px 5px;
+}
+
+#month_tab{
+    width: 100%;
+    text-align: center;
+}
+
+#month_text{
+    font-size: 15px;
+    vertical-align: super;
+}
+
+.date_button{
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background-color:orangered;
+    display: inline-table
 }
