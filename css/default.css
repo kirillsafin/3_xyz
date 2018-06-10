@@ -19,7 +19,7 @@
     height: 100%;
     width: 100%;
     text-align: center;
-    display: inline-grid;
+    display: grid;
 }
 
 #nav ul{
@@ -44,11 +44,11 @@
 }
 
 #search{
-    width: 49%;
+    width: 69%;
     display: inline-block;
 }
 #nav{
-    width: 50%;
+    width: 30%;
     display: inline-block;
 }
 
@@ -129,14 +129,18 @@ input {
 button{
     background-color: #FF6545;
     border-radius: 10px;
-    width: 100px;
+    width: 150px;
     background-color: black;
     border: 2px solid;
     color: white;
+   
+}
+#action_buttons button{
+    vertical-align: middle;
 }
 
 .dec-text{
-    width: 100px;
+    width: 250px;
 }
 textarea{
     border: 1px solid black;
@@ -164,18 +168,37 @@ textarea{
 tr{
     width: 100%;
 }
+th, td{
+    padding: 5px;
+}
 
-td, th{
+td.month_row, th.month_row{
     width: 14%;
 }
+td.uhrzeit, th.uhrzeit{
+    width: 15%; 
+}
+td.terminname, th.terminname{
+    width: 25%
+}
+
 #button_back, #button_forw{
     font-size: 30px;
     border-radius: 0px 5px 0px 5px;
 }
 
-#month_tab{
+table#month_tab{
     width: 100%;
     text-align: center;
+
+}
+table#appointments, table#appointments th, table#appointments td{
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
+table#appointments{
+    width: 95%;
+    margin: 5px auto 5px auto;
 }
 
 #month_text{
@@ -189,6 +212,32 @@ td, th{
     width: 25px;
     height: 25px;
     display: inline-block;
-    background-color:orangered;
     display: inline-table
+}
+
+#header_month{
+    display: flex;
+    align-items: center;
+}
+
+#header_month #month_text{
+    flex-grow: 1;
+    text-align: center;
+
+}
+
+input:hover, img#pic_menu:hover, #button_back:hover, #button_forw:hover, button:hover, td.appointment_row:hover, #nav li:hover, #month_tab .activeK:hover{
+    cursor: pointer;
+}
+
+.disableK{
+    background-color: #CFCECD;
+}
+
+.activeK{
+    background-color: yellow;
+}
+
+.treffer{
+    background-color:orangered;
 }

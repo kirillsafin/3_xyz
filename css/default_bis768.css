@@ -61,5 +61,11 @@
         height: 0px;
     }
     
+    .dec-text{
+        width: 150px;
+    }
 
+    button{
+        width: 120px;
+    }
 }
