@@ -15,14 +15,17 @@
                 <div id="search">
                     <form action="" method="dialog">
                         <input type="text" class="dec-text">
-                        <button class="dec-button">Suchen</button>
+                        <button class="dec-button" type="button">Suchen</button>
                     </form>
                 </div>
                     
                 <div id="nav" class="right">       
                     <ul id="menu_hide_show" class="menu_hidden">
                     <div id="nav_inner">
-                        <li><a href="../index.html">Startseite</a></li>                                <li><a href="../html/month.html">Zum Kalendar</a></li>                            <li><a href="../html/search.html">Suchen</a></li>
+                        <li onclick="aufrufIndex();">Startseite</li>
+                        <li onclick="aufrufMonth();">Zum Kalendar</li>
+                        <li onclick="aufrufSearch();">Suchen</li>
+                        <li onclick="aufrufChange();">Neuer Termin</li>
                     </div>
                     </ul>
                     <img src="../bilder/menu.svg" id="pic_menu" onclick="showMenu()">
@@ -37,11 +40,18 @@
             <div id="content_data">
                 <div id="outputday" class="center">
                     <h3 class="termin">Ihr Termin am ...</h3>
-                    <form method="" action="">
-                        <label>Datum </br><input type="date" readonly/></label> </br>
-                        <label>Terminname</br><input type="text" readonly/></label> </br>
-                        <label>Notizen </br><textarea readonly>... </textarea></label> </br>
-                        <button>Zurük zum Kalender</button>
+                    <?php
+                        include "../php/functions1.inc.php";
+                        show_day();
+                    ?>
+                    
+                        
+
+                        <div id="action_buttons">
+                            <button type="button">Zurük zum Kalender</button>
+                            <button type="button">Termin ändern</button>
+                            <button type="button">Termin löschen</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -50,8 +60,8 @@
     
     
             </div>
-            <script src="../script/background_slider.js"></script>
             <script src="../script/menu.js"></script>
             <script src="../script/start_sript.js"></script>
+            <script src="../script/requests.js"></script>
         </body>
 </html>

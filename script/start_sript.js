@@ -4,6 +4,8 @@ var browserHoehe=window.innerHeight;
 
 //Funtionen
 function einstellenMenu(){
+    browserBreite=window.innerWidth;
+    browserHoehe=window.innerHeight;
     var menu_elem=new Array();
     var menu_rule=new Array();
     var alle_styles=new Array();
@@ -68,8 +70,9 @@ function einstellenMenu(){
     }
 }
 
-
 function postitionierenText(){
+    browserBreite=window.innerWidth;
+    browserHoehe=window.innerHeight;
     var elemText=document.getElementsByClassName("text");
     var elemPicture;
     if(typeof elemText[0] !="undefined"){
@@ -85,6 +88,8 @@ function postitionierenText(){
 }
 
 function toogle_background_pic(wahl){
+    browserBreite=window.innerWidth;
+    browserHoehe=window.innerHeight;
     var bilder=document.getElementsByClassName("pic_background");
     var items=document.getElementsByClassName("button_item");
     var klassenNamen;
@@ -211,58 +216,40 @@ function positionierenBackgrPic(){
 }
 
 function positionierenContent(){
+    browserBreite=window.innerWidth;
+    browserHoehe=window.innerHeight;
     var pathnameSite=window.location.pathname;
-    var matched=pathnameSite.match(/search.html|output.html|month.html$/);
+    var matched=pathnameSite.match(/search.html|output.html|month.php|change.html$/);
     if(matched){
         var elemContent=document.getElementById("content");
         var elemHeader=document.getElementById("header");
         if(elemContent!="undefined" && elemHeader!="undefined"){
-            var tempHoehe=elemContent.clientHeight/2;
-            tempHoehe=((browserHoehe/2)-elemHeader.clientHeight)-tempHoehe;
-            elemContent.style.position="relative";
-            elemContent.style.top=tempHoehe+"px";
+            var tempHoeheGesamt=elemContent.offsetHeight+elemHeader.offsetHeight+10;
+            if(tempHoeheGesamt<browserHoehe){
+                var tempHoehe=elemContent.clientHeight/2;
+                tempHoehe=((browserHoehe/2)-elemHeader.clientHeight)-tempHoehe;
+                elemContent.style.position="relative";
+                elemContent.style.top=tempHoehe+"px";
+            }  
         }
     }
 }
 
-function positionierenMonthHeader(){
-    var pathnameSite=window.location.pathname;
-    var matched=pathnameSite.match(/month.html$/);
-    if(matched){
-        var elemMonthHeader=document.getElementById("header_month");
-        if(elemMonthHeader!="undefined"){
-            var elemTextMonth=document.getElementById("month_text");
-            var elemButtonNext=document.getElementById("button_forw");
-            
-            var tempBreite=-(elemTextMonth.getBoundingClientRect().left); 
-            tempBreite=Math.ceil(tempBreite);
-            tempBreite=tempBreite+elemMonthHeader.clientWidth/2;
-            tempBreite=tempBreite-(elemTextMonth.clientWidth/2);
-            elemTextMonth.style.position="relative";
-            elemTextMonth.style.left=tempBreite+"px";
 
-            var tempBreite1=-(elemButtonNext.getBoundingClientRect().left);
-            var tempBreite2=Math.floor(tempBreite1);
-            //var tempBreite2=tempBreite1;
-            var tempBreite3=tempBreite2+elemMonthHeader.clientWidth;
-            var tempBreite4=tempBreite3+elemButtonNext.offsetWidth;
-            elemButtonNext.style.position="relative";
-            elemButtonNext.style.left=tempBreite4+"px";
-        }
-    }
-}
-
-positionierenBackgrPic();
-postitionierenText();
-einstellenMenu();
-positionierenContent();
-positionierenMonthHeader();
+//positionierenBackgrPic();
+//postitionierenText();
+//einstellenMenu();
+//positionierenContent();
 
 window.addEventListener("resize", positionierenBackgrPic);
 window.addEventListener("resize", postitionierenText);
 window.addEventListener("resize", einstellenMenu);
 window.addEventListener("resize", positionierenContent);
-window.addEventListener("resize", positionierenMonthHeader);
+
+window.addEventListener("load", positionierenBackgrPic);
+window.addEventListener("load", postitionierenText);
+window.addEventListener("load", einstellenMenu);
+window.addEventListener("load", positionierenContent);
 
 var varInterval;
 varInterval=window.setInterval(toogle_background_pic, 5000, 0);
