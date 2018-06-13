@@ -14,9 +14,9 @@
             <div id="header">
 
                     <div id="search">
-                        <form action="" method="dialog">
-                            <input type="text" class="dec-text">
-                            <button class="dec-button" type="button" onclick="aufrufSearch();">Suchen</button>
+                        <form action="change.php" method="post">
+                            <input type="text" name="suchen_all" class="dec-text">
+                            <button class="dec-button" type="submit">Suchen</button>
                         </form>
                     </div>
                     

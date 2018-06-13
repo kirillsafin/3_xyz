@@ -219,7 +219,7 @@ function positionierenContent(){
     browserBreite=window.innerWidth;
     browserHoehe=window.innerHeight;
     var pathnameSite=window.location.pathname;
-    var matched=pathnameSite.match(/search.html|output.html|month.php|change.html$/);
+    var matched=pathnameSite.match(/search.php|output.php|month.php|change.php$/);
     if(matched){
         var elemContent=document.getElementById("content");
         var elemHeader=document.getElementById("header");

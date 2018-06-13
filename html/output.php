@@ -13,9 +13,9 @@
         <body>
             <div id="header">
                 <div id="search">
-                    <form action="" method="dialog">
-                        <input type="text" class="dec-text">
-                        <button class="dec-button" type="button">Suchen</button>
+                    <form action="change.php" method="post">
+                        <input type="text" name="suchen_all" class="dec-text">
+                        <button class="dec-button" type="submit">Suchen</button>
                     </form>
                 </div>
                     
@@ -44,14 +44,6 @@
                         include "../php/functions1.inc.php";
                         show_day();
                     ?>
-                    
-                        
-
-                        <div id="action_buttons">
-                            <button type="button">Zurük zum Kalender</button>
-                            <button type="button">Termin ändern</button>
-                            <button type="button">Termin löschen</button>
-                        </div>
                     </form>
                 </div>
             </div>

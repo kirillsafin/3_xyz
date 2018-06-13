@@ -13,9 +13,9 @@
         <body>
             <div id="header">
                 <div id="search">
-                    <form action="" method="dialog">
-                        <input type="text" class="dec-text">
-                        <button class="dec-button" type="button" onclick="aufrufSearch();">Suchen</button>
+                    <form action="change.php" method="post">
+                        <input type="text" name="suchen_all" class="dec-text">
+                        <button class="dec-button" type="submit">Suchen</button>
                     </form>
                 </div>
                     
@@ -40,18 +40,10 @@
             <div id="content_data">
                 <div id="outputday" class="center">
                     <h3 class="termin">Ihr Termin am ...</h3>
-                    <form method="" action="">
-                        <label>Datum </br><input type="date"/></label> </br>
-                        <label>Terminname</br><input type="text" /></label> </br>
-                        <label>Uhrzeit</br><input type="datetime"/></label> </br>
-                        <label>Notizen </br><textarea readonly>... </textarea></label> </br>
-                        <div id="action_buttons">
-                            <button type="button">Zurük zum Kalender</button>
-                            <button type="button">Speichern</button>
-                            <button type="button">Termin löschen</button>
-                        </div>
-                    </form>
-                </div>
+                    <?php
+                        include "../php/functions1.inc.php";
+                        search();
+                    ?>
             </div>
     
             <div id="footer">

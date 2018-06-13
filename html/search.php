@@ -13,9 +13,9 @@
         <body>
             <div id="header">
                 <div id="search">
-                    <form action="" method="dialog">
-                        <input type="text" class="dec-text">
-                        <button class="dec-button" type="button" onclick="aufrufSearch();">Suchen</button>
+                    <form action="change.php" method="post">
+                        <input type="text" name="suchen_all" class="dec-text">
+                        <button class="dec-button" type="submit">Suchen</button>
                     </form>
                 </div>               
                 <div id="nav" class="right">           
@@ -38,12 +38,12 @@
                 <div id="content_data">
                     <div id="search_day" class="center">
                         <h3 class="termin">Geben Sie Suchanfragen ein</h3>
-                        <form method="GET" action="">
-                            <label>Datum </br><input type="date" /></label> </br>
-                            <label>Terminname </br><input type="text" /></label> </br>
-                            <label>Notizen </br><textarea >
-                                ... </textarea></label> </br>
-                            <button type="button" onclick=" aufrufSearchDetail();">Suchen</button>
+                        <form method="post" action="change.php">
+                            <label>Datum </br><input type="date" name="datum" /></label> </br>
+                            <label>Terminname </br><input type="text" name="terminname"/></label> </br>
+                            <label>Uhrzeit </br><input type="datetime" name="uhrzeit" /></label> </br>
+                            <label>Notizen </br><textarea name="beschr"></textarea></label> </br>
+                            <button type="submit">Suchen</button>
                         </form>
                     </div>
                 </div>

@@ -11,29 +11,18 @@ var aufrufIndex=function(){
 
 var aufrufSearch=function(){
     var ziel=window.location.href;
-    var matched=ziel.match(/.*html.*\.html/);
+    var matched=ziel.match(/.*html.*\.php/);
     if(matched){
-        window.location.href="search.html";
+        window.location.href="search.php";
     }
     else{
-        window.location.href="html/search.html";
-    }
-}
-
-var aufrufSuchenAll=function(){
-    var ziel=window.location.href;
-    var matched=ziel.match(/.*html.*\.html/);
-    if(matched){
-        window.location.href="search.html?varnam1=10";
-    }
-    else{
-        window.location.href="html/search.html?varnam1=10";
+        window.location.href="html/search.php";
     }
 }
 
 var aufrufSearchDetail=function(){
     var ziel=window.location.href;
-    var matched=ziel.match(/.*html.*\.html/);
+    var matched=ziel.match(/.*html.*\.php/);
     if(matched){
         var tempHref="search.html?varnam1=10";
         window.location.href="search.html?varnam1=-10";
@@ -149,22 +138,112 @@ var aufrufLastMonth=function(){
     ziel=window.location.href;
 }
 
-var aufrufChange=function(){
+var aufrufChange=function(event){
     var ziel=window.location.href;
-    var matched=ziel.match(/.*html.*\.html/);
+    var matched=ziel.match(/.*html.*\.php/);
+    if((typeof event)!="undefined"){
+        var objParent=event.target.parentNode;
+        var objReihe=objParent.childNodes;
+        var id; 
+        for(var i=0; i<objReihe.length; i++){
+            if(objReihe[i].classList.contains("row_hidden")){
+                id=objReihe[i].innerHTML;
+            }
+        }
+    }
+    
     if(matched){
         matched=ziel.match(/output.html/);
         if(!matched){
-            window.location.href="change.html";
+            if((typeof id)!="undefined"){
+                window.location.href="change.php?id="+id;
+            }
+            else{
+                window.location.href="change.php";
+            }
+            
         }
     }
     else{
-        window.location.href="html/change.html";
+        if((typeof id)!="undefined"){
+            window.location.href="html/change.php?id="+id;
+        }
+        else{
+            window.location.href="html/change.php";
+        }
     }
 }
 
+var check=function(event){
+   var objValidate=event.target;
+   var objChild=objValidate.childNodes;
+   for(var i=0; i<objChild.length; i++){
+       if(objChild[i].tagName=="LABEL"){
+            var objChild2=objChild[i].childNodes;
+            for(var j=0; j<objChild2.length; j++){
+                if(objChild2[j].tagName=="INPUT"){
+                    if(objChild2[j].name=="datum"){
+                        var valueInput=objChild2[j].value;
+                        var ok=valueInput.match(/^[1-9][0-9]{3}-[0-9]{2}-[0-9]{2}$/);
+                        if(ok==null){
+                            alert("Falsche Eingabe");
+                            return false;
+                        }
+                    }
+                    else if(objChild2[j].name=="uhrzeit"){
+                        var valueInput=objChild2[j].value;
+                        var ok=valueInput.match(/^[0-9]{1,2}:[0-9]{2}$/);
+                        if(ok==null){
+                            alert("Falsche Eingabe");
+                            return false;
+                        }
+                    }
+                    else if(objChild2[j].name=="terminname"){
+                        if(objChild2[j].value==""){
+                            alert("Falsche Eingabe");
+                            return false;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+    return true;
+}
+
+var aufruf_UpdateInsert=function(event){
+    var objUpdate=event.target.parentNode.parentNode;
+    var objChild=objUpdate.childNodes;
+    for(var i=0; i<objChild.length; i++){
+        if(objChild[i].type=="hidden"){
+            if(objChild[i].name=="delupdate"){
+                objChild[i].value="update";
+            }
+        }
+        
+    }
+}
+
+var aufruf_Del=function(event){
+    var objUpdate=event.target.parentNode.parentNode;
+    var objChild=objUpdate.childNodes;
+    for(var i=0; i<objChild.length; i++){
+        if(objChild[i].type=="hidden"){
+            if(objChild[i].name=="delupdate"){
+                objChild[i].value="delete";
+            }
+        }  
+    }
+}
 
 var days_button=document.getElementsByClassName("activeK");
 for(var i=0; i<days_button.length; i++){
     days_button[i].addEventListener("click", function(){aufrufOutput(event);}, false);
 }
+
+var tab_eintraege=document.getElementsByClassName("eintrag")
+for(var i=0; i<tab_eintraege.length; i++){
+    tab_eintraege[i].addEventListener("click", function(){aufrufChange(event);}, false);
+}
+
