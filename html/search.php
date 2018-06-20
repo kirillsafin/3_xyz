@@ -1,7 +1,7 @@
 <html>
         <head>
                 <head>
-                        <title>Willkommen</title>
+                        <title>Suchen</title>
                 
                         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
                 
@@ -24,7 +24,7 @@
                             <li onclick="aufrufIndex();">Startseite</li>
                             <li onclick="aufrufMonth();">Zum Kalendar</li>
                             <li onclick="aufrufSearch();">Suchen</li>
-                            <li onclick="aufrufChange();">Neuer Termin</li>
+                            <li onclick="aufrufInsert();">Neuer Termin</li>
                         </div>
                     </ul>
                     <img src="../bilder/menu.svg" id="pic_menu" onclick="showMenu()">        

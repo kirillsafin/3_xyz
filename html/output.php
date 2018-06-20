@@ -1,7 +1,7 @@
 <html lang="de">
         <head>
                 <head>
-                        <title>Willkommen</title>
+                        <title>Tag</title>
                 
                         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
                         <meta http-equip="content-type" content="text/html; charset=iso-8859-1" />
@@ -25,7 +25,7 @@
                         <li onclick="aufrufIndex();">Startseite</li>
                         <li onclick="aufrufMonth();">Zum Kalendar</li>
                         <li onclick="aufrufSearch();">Suchen</li>
-                        <li onclick="aufrufChange();">Neuer Termin</li>
+                        <li onclick="aufrufInsert();">Neuer Termin</li>
                     </div>
                     </ul>
                     <img src="../bilder/menu.svg" id="pic_menu" onclick="showMenu()">
