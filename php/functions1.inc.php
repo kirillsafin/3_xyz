@@ -2,8 +2,8 @@
     include "classes1.inc.php";
 
     function del_update_insert_appointment(){
-        $connection=mysqli_connect("localhost", "rusch", "18itws201718", "rusch");
-        mysqli_select_db($connection, "rusch");
+        $connection=mysqli_connect("", "root");
+        mysqli_select_db($connection, "kalendar_elina");
 
         if(isset($_POST["delupdate"]) && $_POST["delupdate"]=="delete"){
             $sqlanfrage="select * from termine where id='".$_POST["id"]."'";
@@ -56,8 +56,8 @@
     function search(){
         if(isset($_GET["id"])){
 
-            $connection=mysqli_connect("localhost", "rusch", "18itws201718", "rusch");
-            mysqli_select_db($connection, "rusch");
+            $connection=mysqli_connect("", "root");
+            mysqli_select_db($connection, "kalendar_elina");
             $sqlanfrag="select * from termine where id='".$_GET["id"]."'";
             $result=mysqli_query($connection, $sqlanfrag);
             $anzahl=mysqli_num_rows($result);
@@ -82,8 +82,8 @@
         }
         else if(isset($_POST["datum"]) || isset($_POST["terminname"]) ||isset($_POST["beschr"]) || isset($_POST["uhrzeit"])){
             $alleWerte=array();
-            $connection=mysqli_connect("localhost", "rusch", "18itws201718", "rusch");
-            mysqli_select_db($connection, "rusch");
+            $connection=mysqli_connect("", "root");
+            mysqli_select_db($connection, "kalendar_elina");
             $sqlanfrage="select * from termine";
             $result=mysqli_query($connection, $sqlanfrage);
             $anzahl=mysqli_num_rows($result);
@@ -116,8 +116,8 @@
         }
         else if(isset($_POST["suchen_all"])){
             $alleWerte=array();
-            $connection=mysqli_connect("localhost", "rusch", "18itws201718", "rusch");
-            mysqli_select_db($connection, "rusch");
+            $connection=mysqli_connect("", "root");
+            mysqli_select_db($connection, "kalendar_elina");
             $sqlanfrage="select * from termine";
             $result=mysqli_query($connection, $sqlanfrage);
             $anzahl=mysqli_num_rows($result);
@@ -188,8 +188,8 @@
             $tempDAtumprep=mktime(0,0,0,$monat,$tag,$jahr);
             $tempDatum=date("Y-m-d", $tempDAtumprep);
             
-            $connection=mysqli_connect("localhost", "rusch", "18itws201718", "rusch");
-            mysqli_select_db($connection, "rusch");
+            $connection=mysqli_connect("", "root");
+            mysqli_select_db($connection, "kalendar_elina");
 
             echo "<table id='appointments' style='border: 1px solid black'>";
             echo "<tr>";
@@ -264,8 +264,8 @@
             $jahrbegin=intval($_GET["jahr"]);
             $tagbegin=1;
 
-            $connection=mysqli_connect("localhost", "rusch", "18itws201718", "rusch");
-            mysqli_select_db($connection, "rusch");
+            $connection=mysqli_connect("", "root");
+            mysqli_select_db($connection, "kalendar_elina");
             
             echo "<table id='month_tab'>";
             echo "<tr id='tab_heading'>";

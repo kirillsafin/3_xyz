@@ -4,6 +4,9 @@
                     <title>Monat</title>
             
                     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+                    <link href="../css/default.css" rel="stylesheet" type="text/css" />
+                     <link href="../css/default_bis768.css" rel="stylesheet" type="text/css" media="screen"/>
+                    <link href="../css/default_bis360.css" rel="stylesheet" type="text/css" media="screen" />
             
               
                 </head>

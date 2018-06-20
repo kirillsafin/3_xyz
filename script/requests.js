@@ -214,7 +214,7 @@ var check=function(event){
                     }
                     else if(objChild2[j].name=="uhrzeit"){
                         var valueInput=objChild2[j].value;
-                        var ok=valueInput.match(/^[0-9]{1,2}:[0-9]{2}$/);
+                        var ok=valueInput.match(/^([01]\d|2[0-3]):?([0-5]\d)$/);
                         if(ok==null){
                             alert("Falsche Eingabe");
                             return false;
