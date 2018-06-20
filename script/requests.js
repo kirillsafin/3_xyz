@@ -144,22 +144,33 @@ var aufrufChange=function(event){
     if((typeof event)!="undefined"){
         var objParent=event.target.parentNode;
         var objReihe=objParent.childNodes;
-        var id; 
+        var id;
+        var uhrzeit;
         for(var i=0; i<objReihe.length; i++){
             if(objReihe[i].classList.contains("row_hidden")){
                 id=objReihe[i].innerHTML;
             }
+            if(objReihe[i].classList.contains("uhrzeit")){
+                uhrzeit=objReihe[i].innerHTML;
+            }
         }
     }
-    
+    var paramGet=ziel.split("?",2);
+
     if(matched){
-        matched=ziel.match(/output.html/);
-        if(!matched){
+        matched=ziel.match(/output.php/);
+        
+        if(matched){
             if((typeof id)!="undefined"){
                 window.location.href="change.php?id="+id;
             }
             else{
-                window.location.href="change.php";
+                if(typeof paramGet!="undefined"){
+                    window.location.href="change.php?"+paramGet[1]+"&uhrzeit="+uhrzeit;
+                }
+                else{
+                    window.location.href="change.php";
+                }
             }
             
         }
@@ -171,6 +182,17 @@ var aufrufChange=function(event){
         else{
             window.location.href="html/change.php";
         }
+    }
+}
+
+var aufrufInsert=function(){
+    var ziel=window.location.href;
+    var matched=ziel.match(/.*html.*\.php/);
+    if(matched){
+        window.location.href="change.php";
+    }
+    else{
+        window.location.href="html/change.php";
     }
 }
 
