@@ -2,8 +2,8 @@
     include "classes1.inc.php";
 
     function del_update_insert_appointment(){
-        $connection=mysqli_connect("", "root");
-        mysqli_select_db($connection, "kalendar_elina");
+        $connection=mysqli_connect("localhost", "rusch", "18itws201718", "rusch");
+        mysqli_select_db($connection, "rusch");
 
         if(isset($_POST["delupdate"]) && $_POST["delupdate"]=="delete"){
             $sqlanfrage="select * from termine where id='".$_POST["id"]."'";
@@ -56,8 +56,8 @@
     function search(){
         if(isset($_GET["id"])){
 
-            $connection=mysqli_connect("", "root");
-            mysqli_select_db($connection, "kalendar_elina");
+            $connection=mysqli_connect("localhost", "rusch", "18itws201718", "rusch");
+            mysqli_select_db($connection, "rusch");
             $sqlanfrag="select * from termine where id='".$_GET["id"]."'";
             $result=mysqli_query($connection, $sqlanfrag);
             $anzahl=mysqli_num_rows($result);
@@ -82,8 +82,8 @@
         }
         else if(isset($_POST["datum"]) || isset($_POST["terminname"]) ||isset($_POST["beschr"]) || isset($_POST["uhrzeit"])){
             $alleWerte=array();
-            $connection=mysqli_connect("", "root");
-            mysqli_select_db($connection, "kalendar_elina");
+            $connection=mysqli_connect("localhost", "rusch", "18itws201718", "rusch");
+            mysqli_select_db($connection, "rusch");
             $sqlanfrage="select * from termine";
             $result=mysqli_query($connection, $sqlanfrage);
             $anzahl=mysqli_num_rows($result);
@@ -116,8 +116,8 @@
         }
         else if(isset($_POST["suchen_all"])){
             $alleWerte=array();
-            $connection=mysqli_connect("", "root");
-            mysqli_select_db($connection, "kalendar_elina");
+            $connection=mysqli_connect("localhost", "rusch", "18itws201718", "rusch");
+            mysqli_select_db($connection, "rusch");
             $sqlanfrage="select * from termine";
             $result=mysqli_query($connection, $sqlanfrage);
             $anzahl=mysqli_num_rows($result);
@@ -148,6 +148,22 @@
             }
             mysqli_close($connection);
         }
+        else if(isset($_GET["monat"]) && isset($_GET["jahr"]) &&isset($_GET["uhrzeit"])){
+            $datumprep=mktime(0,0,0,intval($_GET["monat"]),intval($_GET["tag"]), intval($_GET["jahr"]));
+            $datum=date("Y-m-d", $datumprep);
+            echo "<form method='post' action='../php/aufrufe.php' onsubmit=' return check(event);'>";
+            echo "<label>Datum </br><input type='date' name='datum' value='".$datum."'/></label> </br>";
+             echo "<label>Terminname</br><input type='text' name='terminname' /></label> </br>";
+            echo "<label>Uhrzeit</br><input name='uhrzeit' type='datetime' value='".$_GET["uhrzeit"]."' /></label> </br>";
+            echo "<label>Notizen </br><textarea name='beschr' ></textarea></label> </br>";
+            echo "<input type='hidden' name='id' value='0' />";
+            echo "<input type='hidden' name='insert'/>";
+            echo "<div id='action_buttons'>";
+            echo "<button type='submit' onclick='aufruf_UpdateInsert(event);'>Speichern</button>";
+            echo "<button type='submit' onclick='aufruf_Del(event);'>Termin löschen</button>";
+            echo "</div>";
+            echo "</form>";
+        }
         else{
             echo "<form method='post' action='../php/aufrufe.php' onsubmit=' return check(event);'>";
             echo "<label>Datum </br><input type='date' name='datum'/></label> </br>";
@@ -172,8 +188,8 @@
             $tempDAtumprep=mktime(0,0,0,$monat,$tag,$jahr);
             $tempDatum=date("Y-m-d", $tempDAtumprep);
             
-            $connection=mysqli_connect("", "root");
-            mysqli_select_db($connection, "kalendar_elina");
+            $connection=mysqli_connect("localhost", "rusch", "18itws201718", "rusch");
+            mysqli_select_db($connection, "rusch");
 
             echo "<table id='appointments' style='border: 1px solid black'>";
             echo "<tr>";
@@ -248,8 +264,8 @@
             $jahrbegin=intval($_GET["jahr"]);
             $tagbegin=1;
 
-            $connection=mysqli_connect("", "root");
-            mysqli_select_db($connection, "kalendar_elina");
+            $connection=mysqli_connect("localhost", "rusch", "18itws201718", "rusch");
+            mysqli_select_db($connection, "rusch");
             
             echo "<table id='month_tab'>";
             echo "<tr id='tab_heading'>";
@@ -331,10 +347,5 @@
             mysqli_close($connection);
         }
     }
-
-    //Tests:
-    //echo "<link href='../css/default.css' rel='stylesheet type='text/css' />";
-    //echo "<link href='../css/default_bis768.css' rel='stylesheet' type='text/css' media='screen'/>";
-    //echo "<link href='../css/default_bis360.css' rel='stylesheet' type='text/css' media='screen' />";
 
 ?>
